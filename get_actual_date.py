@@ -1,11 +1,9 @@
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 import re
+
 def get_actual_date(move):
     today = datetime.today().strftime('%Y%m%d')
-    regex_day = re.compile(r'(\d)( 天前)')
-    regex_month = re.compile(r'(\d)( 月前)')
-    regex_year = re.compile(r'(\d)( 年前)')
     if move.find(' 天前') != -1:
         regex = re.compile(r'(\d)( 天前)')
         substract = int(regex.search(move).group(1))
